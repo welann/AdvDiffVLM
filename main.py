@@ -45,7 +45,7 @@ def load_model_from_config(config, ckpt):
 
 def get_model():  # 下载地址
     config = OmegaConf.load("configs/latent-diffusion/cin256-v2.yaml")
-    model = load_model_from_config(config, "/data/model_weight/model.ckpt")
+    model = load_model_from_config(config, "./data/model_weight/model.ckpt")
     return model
 
 
