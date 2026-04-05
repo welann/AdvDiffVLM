@@ -43,7 +43,7 @@ def load_model_from_config(config, ckpt):
 
 def get_model():  # 下载地址
     config = OmegaConf.load("configs/latent-diffusion/cin256-v2.yaml")  
-    model = load_model_from_config(config, "/data/gq/pretrain_weights/diffusion-model/ldm/cin256-v2/model.ckpt")
+    model = load_model_from_config(config, "/data/model_weight/model.ckpt")
     return model
 
 ## 设置随机种子
@@ -121,7 +121,7 @@ class ImageFolderWithPaths(torchvision.datasets.ImageFolder):
 input_res = 224
 # cle_data_path = ''
 # 建立映射关系
-cle_data_path = ''
+cle_data_path = 'data/model_weight/'
 res = sorted(os.listdir(cle_data_path))
 name_key = {}
 for i,n in enumerate(res):
