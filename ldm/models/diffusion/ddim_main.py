@@ -463,6 +463,7 @@ class DDIMSampler(object):
                                 adv_image_feature_list.append(adv_image_features)
                             loss = torch.zeros(1).to(device)
                             crit_list = []
+                            #todo 这里是计算梯度的
                             for model_i, (pred_i, target_i) in enumerate(zip(adv_image_feature_list, tgt_image_features_list)):
                                 crit1 =  torch.mean(torch.sum(pred_i * target_i, dim=1))  # 有目标攻击
                                 # crit2 = 1 - torch.mean(torch.sum(pred_i * org_i, dim=1)) # 无目标攻击

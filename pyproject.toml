@@ -1,0 +1,29 @@
+[project]
+name = "advdiffvlm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=1.7.0",
+    "torchvision>=0.8.1",
+    "numpy>=1.19",
+    "Pillow>=8.0",
+    "opencv-python>=4.1.2",
+    "albumentations>=0.4.3",
+    "einops>=0.3.0",
+    "omegaconf>=2.0.0",
+    "pandas>=1.0",
+    "tqdm>=4.0",
+    "scann",
+    "scipy>=1.5",
+    "pytorch-lightning>=1.0.8",
+    "transformers>=4.3.1",
+    "clip @ git+https://github.com/openai/CLIP.git",
+    "kornia",
+    "natsort",
+    "PyYAML>=5.4",
+    "imageio>=2.9.0",
+    "imageio-ffmpeg>=0.4.2",
+    "academictorrents",
+]
