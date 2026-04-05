@@ -217,7 +217,7 @@ ddim_eta = 0.0
 scale = 5.0  # for unconditional guidance
 
 img_transformed_list = []
-cam_root = ''
+cam_root = ""
 
 for i, ((image_org, _, path), (image_tgt, _, _)) in enumerate(
     zip(data_loader_imagenet, data_loader_target)
@@ -276,9 +276,9 @@ for i, ((image_org, _, path), (image_tgt, _, _)) in enumerate(
             )
             encoder_posterior = model.encode_first_stage(image_org)
             z = model.get_first_stage_encoding(encoder_posterior).detach()
-            cam = cv2.imread(cam_root + label_id + ".png", 0) / 255.0
-            cam = cv2.resize(cam, (64, 64))
-            cam = torch.tensor(cam).float()
+            # cam = cv2.imread(cam_root + label_id + ".png", 0) / 255.0  # disabled - use fixed value
+            cam = torch.ones((64, 64)).float() * 0.5  # fixed value (no mask used)
+            cam = cam.to(device)
             samples_ddim, _ = sampler.sample(
                 S=ddim_steps,
                 conditioning=c,
